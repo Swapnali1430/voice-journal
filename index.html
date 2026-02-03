@@ -10,8 +10,10 @@
       text-align: center;
       padding: 30px;
       background: #f9f9f9;
+      color: #1f2937;
     }
-    h1 { color: #333; }
+    h1 { color: #111827; }
+    p { margin: 8px 0; }
     #mic-btn {
       font-size: 28px;
       padding: 20px 40px;
@@ -30,7 +32,7 @@
       margin: 20px;
       min-height: 30px;
     }
-    #transcript {
+    .card {
       font-size: 20px;
       margin: 30px auto;
       max-width: 800px;
@@ -38,15 +40,100 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .label {
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+    #log {
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 100px;
+    }
+    #assistant {
+      font-size: 18px;
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #eff6ff;
+      color: #1e3a8a;
+    }
+    #data-meter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 16px;
+    }
+    #meter-bar {
+      flex: 1;
+      height: 10px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+    #meter-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981, #3b82f6);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    .actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .action-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .sell {
+      background: #111827;
+      color: white;
+    }
+    .cancel {
+      background: #f3f4f6;
+      color: #111827;
     }
   </style>
 </head>
 <body>
 
   <h1>Voice Journal</h1>
+  <p id="login-status">One-time voice login required.</p>
+  <p>Speak naturally. No typing needed. The dashboard stays open once logged in.</p>
   <button id="mic-btn">🎤 Start Speaking</button>
   <div id="status"></div>
-  <div id="transcript"></div>
+  <div class="card">
+    <div class="label">Your day</div>
+    <div id="log">No entries yet. Tap the mic to begin.</div>
+  </div>
+  <div class="card">
+    <div class="label">Assistant response</div>
+    <div id="assistant">Waiting for your voice.</div>
+    <div class="actions">
+      <button class="action-btn sell" id="sell-btn">Sell data</button>
+      <button class="action-btn cancel" id="cancel-btn">Cancel</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="label">Data value meter</div>
+    <div id="data-meter">
+      <div id="meter-bar"><div id="meter-fill"></div></div>
+      <span id="meter-label">₹0 offer</span>
+    </div>
+    <p id="limit-note">We only accept a limited amount of data per day.</p>
+  </div>
 
   <script src="script.js"></script>
 

@@ -32,7 +32,7 @@ const serveFile = (filePath, res) => {
 const server = http.createServer((req, res) => {
   const urlPath = decodeURIComponent(req.url.split("?")[0]);
   const safePath = path.normalize(urlPath).replace(/^\.\.(\/|\\)/, "");
-  const filePath = safePath === "/" ? "/index.html" : safePath;
+
   const fullPath = path.join(publicDir, filePath);
 
   if (!fullPath.startsWith(publicDir)) {

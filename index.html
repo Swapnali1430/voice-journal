@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voice Journal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background: #f9f9f9;
+    }
+    h1 { color: #333; }
+    #mic-btn {
+      font-size: 28px;
+      padding: 20px 40px;
+      margin: 20px;
+      border: none;
+      border-radius: 50px;
+      background: #e74c3c;
+      color: white;
+      cursor: pointer;
+    }
+    #mic-btn.listening {
+      background: #27ae60;
+    }
+    #status {
+      font-size: 18px;
+      margin: 20px;
+      min-height: 30px;
+    }
+    #transcript {
+      font-size: 20px;
+      margin: 30px auto;
+      max-width: 800px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Voice Journal</h1>
+  <button id="mic-btn">🎤 Start Speaking</button>
+  <div id="status"></div>
+  <div id="transcript"></div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
